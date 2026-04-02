@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ROLLVOID - Map Select</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&amp;family=Be+Vietnam+Pro:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-primary": "#e9c400",
+              "primary-fixed-dim": "#e9c400",
+              "surface-container-low": "#d9ffbd",
+              "tertiary-container": "#ffdad2",
+              "outline-variant": "#d2c6a1",
+              "on-primary-fixed-variant": "#544600",
+              "primary": "#705d00",
+              "on-primary-container": "#544600",
+              "primary-container": "#ffe16d",
+              "surface-tint": "#705d00",
+              "surface-container-high": "#a5ff6f",
+              "tertiary": "#b42800",
+              "error": "#ba1a1a",
+              "outline": "#807757",
+              "on-primary": "#ffffff",
+              "on-error-container": "#93000a",
+              "secondary-container": "#c6e7ff",
+              "inverse-on-surface": "#ceffac",
+              "primary-fixed": "#ffe16d",
+              "surface-bright": "#eeffdd",
+              "secondary-fixed": "#c6e7ff",
+              "on-tertiary-container": "#8a1d00",
+              "on-secondary-container": "#004c6b",
+              "on-tertiary": "#ffffff",
+              "surface-container-highest": "#80ff2c",
+              "error-container": "#ffdad6",
+              "on-background": "#092100",
+              "surface-container-lowest": "#ffffff",
+              "secondary-fixed-dim": "#81cfff",
+              "on-tertiary-fixed-variant": "#8a1d00",
+              "inverse-surface": "#153800",
+              "background": "#eeffdd",
+              "tertiary-fixed-dim": "#ffb4a2",
+              "surface-dim": "#72f700",
+              "surface-variant": "#80ff2c",
+              "on-secondary": "#ffffff",
+              "on-secondary-fixed": "#001e2d",
+              "surface": "#eeffdd",
+              "on-primary-fixed": "#221b00",
+              "on-error": "#ffffff",
+              "on-secondary-fixed-variant": "#004c6b",
+              "on-surface-variant": "#4e462a",
+              "on-tertiary-fixed": "#3c0700",
+              "secondary": "#00658d",
+              "surface-container": "#c2ff99",
+              "on-surface": "#092100",
+              "tertiary-fixed": "#ffdad2"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .paper-texture {
+            background-image: radial-gradient(#d2c6a1 1px, transparent 1px);
+            background-size: 24px 24px;
+            opacity: 0.15;
+        }
+        .marker-stroke {
+            -webkit-text-stroke: 3px #092100;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body min-h-screen overflow-x-hidden">
+<!-- Background Decorative Elements -->
+<div class="fixed inset-0 pointer-events-none z-0">
+<div class="paper-texture absolute inset-0"></div>
+<span class="material-symbols-outlined absolute top-20 left-[10%] text-9xl text-surface-container-high rotate-12 opacity-40">filter_vintage</span>
+<span class="material-symbols-outlined absolute top-40 right-[5%] text-8xl text-tertiary-container -rotate-6 opacity-30">star</span>
+<span class="material-symbols-outlined absolute bottom-40 left-[5%] text-9xl text-secondary-container rotate-45 opacity-40">filter_vintage</span>
+</div>
+<!-- Top Navigation (Shell Implementation) -->
+<nav class="flex justify-between items-center w-full px-8 py-6 bg-lime-100 dark:bg-lime-900 rounded-b-[3rem] border-b-4 border-emerald-900 drop-shadow-[0_8px_0_rgba(9,33,0,0.1)] sticky top-0 z-50">
+<div class="font-['Plus_Jakarta_Sans'] font-black tracking-tighter uppercase text-4xl text-yellow-400 drop-shadow-[0_4px_0_rgba(9,33,0,1)] italic">
+            ROLLVOID
+        </div>
+<div class="flex gap-4">
+<button class="text-emerald-800 dark:text-emerald-200 hover:scale-110 hover:rotate-3 transition-transform">
+<span class="material-symbols-outlined text-4xl">star</span>
+</button>
+<button class="text-emerald-800 dark:text-emerald-200 hover:scale-110 hover:rotate-3 transition-transform">
+<span class="material-symbols-outlined text-4xl">trophy</span>
+</button>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="relative z-10 max-w-6xl mx-auto px-6 pt-12 pb-32 flex flex-col items-center">
+<!-- Header -->
+<header class="text-center mb-16">
+<h1 class="font-headline font-black text-7xl md:text-8xl text-tertiary italic tracking-tighter marker-stroke drop-shadow-[6px_6px_0px_#092100]">
+                WHERE TO GO?
+            </h1>
+</header>
+<!-- Map Selection Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 w-full">
+<!-- CITY MAP -->
+<div class="group relative bg-surface-container-lowest p-6 rounded-xl border-4 border-emerald-900 shadow-[8px_8px_0px_#092100] hover:scale-105 transition-all duration-300 -rotate-2">
+<div class="bg-secondary-container rounded-lg overflow-hidden h-64 mb-6 border-4 border-emerald-900">
+<img alt="City Map Illustration" class="w-full h-full object-cover" data-alt="childish cartoon illustration of a city with boxy colorful buildings having smiley faces on windows bold marker outlines bright flat colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDT4tuUpyuKxHj0ZiwXbvRivCYYEMJmk8duUYHAV0yxJbelPLqx2gxQ828crkoq2h6HrwZcEniLVv9DdHNea97ug8hk-JvPtzGjZ20o4KZZ7uR5HDeLtGlXPAqGMGcwFawkaEHa_dI933Bs4NjnsB0LafZ47k8tSVNnLlxu2qwdzakNAI3GA1f8V0zXyxkvBN9Kdm6qRkDy5Vai3DmnqydU_cUr_RbYbHKMOk1l5DuWpuTyKOg_VfAHvV8jTbubd5ewHttQaDeXOqI"/>
+</div>
+<h3 class="font-headline font-black text-4xl text-emerald-900 mb-2">CITY</h3>
+<p class="text-on-surface-variant font-bold">Fun in the boxy streets!</p>
+</div>
+<!-- DESERT MAP (Selected State) -->
+<div class="group relative bg-surface-container-lowest p-6 rounded-xl border-[8px] border-secondary shadow-[12px_12px_0px_#092100] scale-110 z-20 rotate-1">
+<!-- Selected Badge -->
+<div class="absolute -top-10 -right-10 bg-yellow-400 border-4 border-emerald-900 p-4 rounded-full rotate-12 shadow-[4px_4px_0px_#092100] flex items-center justify-center animate-bounce">
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-emerald-900 text-4xl" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-headline font-black text-emerald-900 text-xl tracking-tighter">READY!</span>
+</div>
+</div>
+<div class="bg-primary-container rounded-lg overflow-hidden h-64 mb-6 border-4 border-emerald-900">
+<img alt="Desert Map Illustration" class="w-full h-full object-cover" data-alt="cartoon desert landscape with giant round cacti big yellow smiling sun sandy dunes bold thick marker lines vibrant colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwBKeHWcC1Mc2wuoZTq7DuLCz0qJd043TmDdAQQ1tjyEkO-4lbhsqSnbsgizcPTyURM-ywxGa6W7iObHqsb-_jYSqTEF-sgeUvWJlhELsDYueVrnzbxPCNy-NEPso6bKZU-SyRwjWWl8keOL6juiCuv6ODv3rhBeB48vUQrKH9VEiJOI3KigdsVrkGnsykDrKJxslkdMPt9Si4y0AYCQjKFQ6w1YiiMw5L-tLEQc7gP2zmEM6yt4D8doOHb2PvsiL5uwpEYvEe7dY"/>
+</div>
+<h3 class="font-headline font-black text-4xl text-emerald-900 mb-2">DESERT</h3>
+<p class="text-on-surface-variant font-bold">Hot sun, round cacti!</p>
+</div>
+<!-- SNOW MAP -->
+<div class="group relative bg-surface-container-lowest p-6 rounded-xl border-4 border-emerald-900 shadow-[8px_8px_0px_#092100] hover:scale-105 transition-all duration-300 rotate-2">
+<div class="bg-blue-100 rounded-lg overflow-hidden h-64 mb-6 border-4 border-emerald-900">
+<img alt="Snow Map Illustration" class="w-full h-full object-cover" data-alt="cartoon snow world with white snowballs and mounds a cute penguin with a big blue nose thick black outlines bright playful style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpC05_OKt2SzmYM87ZtIuQhFSwzOiG6csqIH37igLy1h91zMQgwgDRFvqvAF24noqn17b1x6MGnupK-0TropYWGGY7d6LK0uUCICWQYoed-drxs_08xYh-0El-H5eNEJyca4U9VrDkFf7Hd9Y7zfKrLbtwH8iSk0b5USjBk3F6bqU--UbE23l2A8i_Nxs41s6B5JRMaeXyeJC8xEGuaUEYEkSPvkLigsS-ze9lluTivNbbqY86m7SNxpvrJZEdneuxXgUDFqdplqE"/>
+</div>
+<h3 class="font-headline font-black text-4xl text-emerald-900 mb-2">SNOW</h3>
+<p class="text-on-surface-variant font-bold">Chilly waddle world!</p>
+</div>
+</div>
+<!-- Start Button Section -->
+<div class="mt-24">
+<button class="bg-yellow-400 text-emerald-900 font-headline font-black text-6xl px-16 py-8 rounded-full border-[6px] border-emerald-900 shadow-[0_12px_0px_#092100] hover:translate-y-2 hover:shadow-[0_4px_0px_#092100] active:scale-95 transition-all duration-300 cubic-bezier(0.34, 1.56, 0.64, 1) flex items-center gap-4">
+                START!
+                <span class="material-symbols-outlined text-6xl">play_circle</span>
+</button>
+</div>
+</main>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-end px-4 h-24 bg-emerald-50 dark:bg-emerald-950 rounded-t-[3rem] border-t-4 border-emerald-900 pb-safe shadow-[0_-8px_40px_rgba(9,33,0,0.06)]">
+<!-- Maps Tab (ACTIVE) -->
+<a class="flex flex-col items-center justify-center bg-yellow-400 text-emerald-900 rounded-full p-4 scale-110 -translate-y-4 border-4 border-emerald-900 shadow-[0_4px_0_rgba(9,33,0,1)] hover:scale-105 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">map</span>
+<span class="font-['Plus_Jakarta_Sans'] font-bold text-xs">Maps</span>
+</a>
+<a class="flex flex-col items-center justify-center text-emerald-800 dark:text-emerald-200 p-2 hover:scale-105 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">play_arrow</span>
+<span class="font-['Plus_Jakarta_Sans'] font-bold text-xs">Play</span>
+</a>
+<a class="flex flex-col items-center justify-center text-emerald-800 dark:text-emerald-200 p-2 hover:scale-105 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">styler</span>
+<span class="font-['Plus_Jakarta_Sans'] font-bold text-xs">Skins</span>
+</a>
+<a class="flex flex-col items-center justify-center text-emerald-800 dark:text-emerald-200 p-2 hover:scale-105 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-['Plus_Jakarta_Sans'] font-bold text-xs">Shop</span>
+</a>
+</nav>
+</body></html>
